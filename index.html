@@ -91,14 +91,14 @@
         source3.setMaxDistance(3);
 
         // Play the audio.
-        audioElement.play();
+       // audioElement.play();
         audioElement2.play();
 
-        setInterval(()=>{
-            //randomly position bird  -1 to +1 x/y relative to the listeners location every 4 seconds
-            source3.setPosition(x + Math.random() * 2 - 1 ,y + Math.random() * 2 - 1,1);
-            audioElement3.play();
-        },4000);
+     //   setInterval(()=>{
+     //       //randomly position bird  -1 to +1 x/y relative to the listeners location every 4 seconds
+     //       source3.setPosition(x + Math.random() * 2 - 1 ,y + Math.random() * 2 - 1,1);
+     //       audioElement3.play();
+     //   },4000);
 
         resonanceAudioScene.setListenerPosition(x,y,z);
         window.addEventListener("keyup", function(event) {
