@@ -87,15 +87,15 @@
 		
 		
 			function playOrPauseSong() {
-				var onOff ;
+				//var onOff ;
 				//audioElement2.play();
-				if (onOff = 0) {
-				 audioElement2.pause();
-				 onOff = 1;
+				if (audioElement2.paused) {
+				 audioElement2.play();
+				// onOff = 1;
 				}
 				else {
 				audioElement2.play();
-				onOff = 0;
+				//onOff = 0;
 				}
 			}
 
