@@ -63,7 +63,7 @@
 
         //  Cat
         let audioElement2 = document.createElement('audio');
-        audioElement2.src = 'Cat.wav';
+        audioElement2.src = 'bird.wav';
         audioElement2.loop = true;
         let audioElementSource2 = audioContext.createMediaElementSource(audioElement2);
         let source2 = resonanceAudioScene.createSource();
@@ -91,52 +91,8 @@
      //       audioElement3.play();
      //   },4000);
 
-        resonanceAudioScene.setListenerPosition(x,y,z);
-        window.addEventListener("keyup", function(event) {
-
-            // Move laugh audio source around when arrow keys pressed
-            if (event.which == 37) // left arrow key
-                {
-                    source.setPosition(laughX -= 0.10, laughY, laughZ);
-                }
-            if (event.which == 39) // right arrow key
-                {
-                    source.setPosition(laughX += 0.10, laughY, laughZ);
-                }
-            if (event.which == 38) // up arrow key
-                {
-                    source.setPosition(laughX , laughY += 0.10, laughZ);
-                }
-            if (event.which == 40) // down arrow key
-                {
-                    source.setPosition(laughX, laughY -= 0.10, laughZ);
-                }
-            if (event.which == 33) // page up arrow key
-            {
-                source.setPosition(laughX , laughY, laughZ += 0.10);
-            }
-            if (event.which == 34) // page down arrow key
-            {
-                source.setPosition(laughX, laughY, laughZ -= 0.10);
-            }
-            if (event.which == 32) // space key
-            {
-                laughX = 0;
-                laughY = 0;
-                laughZ = 0;
-                source.setPosition(laughX, laughY, laughZ);
-            }
-
-
-
-            // Move the listener left or right on A/D keys
-            if (event.which == 65){ //A
-                resonanceAudioScene.setListenerPosition(x-=0.1,y,z);
-            }
-            if (event.which == 68){ //D
-                resonanceAudioScene.setListenerPosition(x+=0.1,y,z);
-            }
-        }, this);
+        //resonanceAudioScene.setListenerPosition(x,y,z);
+        
 
     </script>
 </head>
