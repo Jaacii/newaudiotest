@@ -46,8 +46,8 @@
 
         
         resonanceAudioScene.setRoomProperties(roomDimensions, roomMaterials);
-
 		
+		//let audioElement [] = document.createElement('audio');
         //Cat     
         let audioElement = document.createElement('audio');
         audioElement.src = 'Cat.wav';
@@ -90,13 +90,28 @@
 				
 				
 				if (onOff == 0) {
-				 audioElement + select +.play();
+					if (select == 0) {		//Unschön. Evtl kann man es mit nem Array kürzen
+					audioElement.play();
+					}
+					else if (select == 1){
+					audioElement1.play();
+					}
+					else {					// select == 2
+					audioElement2.play(); 
+				 }
 				 //Pic change
 				 document.getElementById("playpic").src="pause.png";
 				 onOff = 1;
 				}
 				else {
-				audioElement + select +.pause();     //stop?
+					if (select == 0) {
+					audioElement.pause();     
+					} else if (select == 1){
+					audioElement1.pause();    
+					} else {
+					audioElement2.pause();     
+					}
+				  
 				//Pic change
 				document.getElementById("playpic").src="play.png";
 				onOff = 0;
@@ -106,8 +121,11 @@
 	 //------------Audio Select
 		var select = 2;
 	 
-			function selectSong() {
-			
+			function selectSong(value) {
+				
+					select = value;
+
+				
 			}
 			
 			
@@ -116,15 +134,20 @@
 <body>
 
 	 <!-- Playbutton	input or button -->
-		 <input id="playbtn" type="button" onclick="playOrPauseSong()" src="play.png" class="button">  </input> 
+		 <input id="playbtn" type="button" onclick="playOrPauseSong()"  class="button"> <img id="playpic" src="play.png"/> </input> 
 		 
 		 
 		 </br> </br> </br> </br> </br> </br> </br>
 	 <!-- Selectbutton	 -->	 
 		<div>
-				<input class="Noisemaker" id="s1" onclick="selectSong()" type="button">Pick noise</button> 
+				<input class="Noisemaker" id="s0" value ="0"onclick="selectSong(this.value))" type="button">Pick noise</button> 
 		</div>
-		 
+		 <div>
+				<input class="Noisemaker" id="s1" value= "1" onclick="selectSong(this.value))" type="button">Pick noise</button> 
+		</div>
+		<div>
+				<input class="Noisemaker" id="s2" value= "2" onclick="selectSong(this.value)" type="button">Pick noise</button> 
+		</div>
 
 
 </body>
