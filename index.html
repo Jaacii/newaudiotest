@@ -90,21 +90,23 @@
 				
 				
 				if (onOff == 0) {
-				 audioElement2.play();
+				 audioElement + select +.play();
 				 //Pic change
 				 onOff = 1;
 				}
 				else {
-				audioElement2.stop();     //stop?
+				audioElement + select +.stop();     //stop?
 				//Pic change
 				onOff = 0;
 				}
 			}
 
 	 //------------Audio Select
+		var select = 2;
 	 
-	 
+			function selectSong() {
 			
+			}
 			
 			
     </script>
@@ -114,6 +116,12 @@
 	 <!-- Playbutton	input or button -->
 		 <input id="playbtn" type="button" onclick="playOrPauseSong()"  class="button"> <img src="pause.png"/> </input> 
 		 
+		 
+		 
+	 <!-- Selectbutton	 -->	 
+		<div>
+				<input class="Noisemaker" id="s1" onclick="selectSong()" type="button">Pick noise</button> 
+		</div>
 		 
 
 
