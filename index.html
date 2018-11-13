@@ -87,9 +87,13 @@
 	  //------------Audio Select
 		var select = 2;
 	 
-			function selectSong(value) {
-				
-					select = value;
+			function selectSong(value) {		//funktioniert noch nicht
+					if (value == 0) {
+					select = 0;}
+					else if (value == 1) {
+					select = 1;}
+					else {
+					select = 2;}
 
 				
 			}
