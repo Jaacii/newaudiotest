@@ -146,24 +146,75 @@
 			 
 			 <div> Volume
                 <input type="range" id="volumeslider" class="slider" min="0" max="100" value="10">
+				 <span id="volumeOutput" class="output">0 dB</span>
             </div>
 			<div> Gain
-                <input type="range" id="gainslider" class="slider" min="0" max="100" value="0">
+                <input type="range" id="gainslider" class="slider" min="-50" max="50" value="0">
+				 <span id="gainOutput" class="output">0 dB</span>
             </div>
 			<div> Bass
                 <input type="range" id="bassslider" class="slider" min="0" max="100" value="0">
+				 <span id="bassOutput" class="output">0 dB</span>
             </div>
 			<div> Middle
                 <input type="range" id="middleslider" class="slider" min="0" max="100" value="0">
+				 <span id="middleOutput" class="output">0 dB</span>
             </div>
 			<div> Treble
                 <input type="range" id="trebleslider" class="slider" min="0" max="100" value="0">
+				 <span id="trebleOutput" class="output">0 dB</span>
             </div>
 			<div> Reverb
                 <input type="range" id="reverbslider" class="slider" min="0" max="100" value="0">
+				 <span id="reverbOutput" class="output">0 dB</span>
             </div>
 		 </div>
-		
+		<script>
+		var context = new AudioContext(),
+		sliders = document.getElementsByClassName("slider"),
+		playStopButton = document.getElementById("playStopButton"),
+	/*	 audioElementSource2 = new Audio("../sounds/sound.wav"),
+		source = context.createMediaElementSource(audioElementSource2), */
+		filter = context.createBiquadFilter();
+	
+	   
+		audioElementSource2.loop = true;
+		source.connect(filter);
+		filter.connect(context.destination);
+
+
+
+for (var i = 0; i < sliders.length; i++) {
+    sliders[i].addEventListener("mousemove", changeParameter);
+}
+
+selectList.addEventListener("change", function() {
+    filter.type = selectList.options[selectList.selectedIndex].value;
+});
+
+function changeParameter() {
+    switch(this.id) {
+        case "volumeslider":
+            filter.frequency.value = this.value;
+            document.getElementById("volumeOutput").innerHTML = this.value + " Hz";
+            break;
+        case "bassslider":
+            filter.detune.value = this.value;
+            document.getElementById("bassOutput").innerHTML = this.value + " Cents";
+            break;
+        case "middleslider":
+            filter.Q.value = this.value;
+            document.getElementById("middleOutput").innerHTML = this.value;
+            break;
+        case "gainslider":
+            filter.gain.value = this.value;
+            document.getElementById("gainOutput").innerHTML = this.value + " dB";
+            break;
+    }
+}
+
+
+		</script>
 		
 </body>
 </html>
