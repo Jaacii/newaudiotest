@@ -149,15 +149,15 @@
 				 <span id="volumeOutput" class="output">0 dB</span>
             </div>
 			<div> Gain
-                <input type="range" id="seekslider" class="slider" min="-50" max="50" value="0">
+                <input type="range" id="gainslider" class="slider" min="-50" max="50" value="0">
 				 <span id="gainOutput" class="output">0 dB</span>
             </div>
 			<div> Bass
-                <input type="range" id="bassslider" class="slider" min="0" max="100" value="0">
+                <input type="range" id="seekslider" class="slider" min="0" max="100" value="0">
 				 <span id="bassOutput" class="output">0 dB</span>
             </div>
 			<div> Middle
-                <input type="range" id="middleslider" class="slider" min="0" max="100" value="0">
+                <input type="range" id="delaySlider" class="slider" min="0" max="100" value="0">
 				 <span id="middleOutput" class="output">0 dB</span>
             </div>
 			<div> Treble
@@ -191,7 +191,7 @@
 		delay.connect(stereoPanner);
 		stereoPanner.connect(context.destination);
 		
-		document.getElementById("gainSlider").addEventListener("input", function (e) {
+		document.getElementById("gainslider").addEventListener("input", function (e) {
 		var gainValue = (this.value / 20);
 		document.getElementById("gainOutput").innerHTML = gainValue + " dB";
 		gain.gain.value = gainValue;
