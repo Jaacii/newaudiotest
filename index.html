@@ -188,12 +188,12 @@
 		function seek(event){
 	    if(seeking){
 		    seekslider.value = event.clientX - seekslider.offsetLeft;
-	        seekto = audio.duration * (seekslider.value / 100);
-	        audio.currentTime = seekto;
+	        seekto = audioElement2.duration * (seekslider.value / 100);
+	        audioElement2.currentTime = seekto;
 	    }
     }
 		function setvolume(){
-	    audio.volume = volumeslider.value / 100;
+	    audioElement2.volume = volumeslider.value / 100;
 		}
 
 
