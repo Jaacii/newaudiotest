@@ -111,7 +111,7 @@
 		// Slider
 			function slide() {
 			
-				audioElement2.volume =;
+			//	audioElement2.volume =;
 			
 			}
 			
@@ -145,11 +145,11 @@
 		 
 			 
 			 <div> Volume
-                <input type="range" id="volumeslider" class="slider" min="0" max="100" value="10">
+                <input type="range" id="volumeslider" class="slider" min="0" max="100" value="50">
 				 <span id="volumeOutput" class="output">0 dB</span>
             </div>
 			<div> Gain
-                <input type="range" id="gainslider" class="slider" min="-50" max="50" value="0">
+                <input type="range" id="seekslider" class="slider" min="-50" max="50" value="0">
 				 <span id="gainOutput" class="output">0 dB</span>
             </div>
 			<div> Bass
@@ -170,12 +170,45 @@
             </div>
 		 </div>
 		<script>
-		var context = new AudioContext(),
+	
+		volumeslider = document.getElementById("volumeslider");
+		volumeslider.addEventListener("mousemove", setvolume);
+		seekslider = document.getElementById("seekslider");
+		seekslider.addEventListener("mousedown", function(event){ seeking=true; seek(event); });
+	seekslider.addEventListener("mousemove", function(event){ seek(event); });
+	seekslider.addEventListener("mouseup",function(){ seeking=false; });
+
+
+
+
+
+
+		function seek(event){
+	    if(seeking){
+		    seekslider.value = event.clientX - seekslider.offsetLeft;
+	        seekto = audio.duration * (seekslider.value / 100);
+	        audio.currentTime = seekto;
+	    }
+    }
+		function setvolume(){
+	    audio.volume = volumeslider.value / 100;
+		}
+
+
+
+
+
+
+
+/*
+
+
+	var context = new AudioContext(),
 		sliders = document.getElementsByClassName("slider"),
 		playStopButton = document.getElementById("playStopButton"),
 	/*	 audioElementSource2 = new Audio("../sounds/sound.wav"),
 		source = context.createMediaElementSource(audioElementSource2), */
-		filter = context.createBiquadFilter();
+	/*	filter = context.createBiquadFilter();
 	
 	   
 		audioElementSource2.loop = true;
@@ -212,7 +245,7 @@ function changeParameter() {
             break;
     }
 }
-
+*/
 
 		</script>
 		
