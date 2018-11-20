@@ -82,12 +82,12 @@
 				 <span id="reverbOutput" class="output">0 dB</span>
             </div>
 		 </div>
+		 <script src="JS/Volume.js"></script>
 		<script>
 	var  seekslider, volumeslider, seeking=false, seekto;
 	
 	
-		volumeslider = document.getElementById("volumeslider");
-		volumeslider.addEventListener("mousemove", setvolume);
+		
 		/*seekslider = document.getElementById("seekslider");
 		seekslider.addEventListener("mousedown", function(event){ seeking=true; seek(event); });
 		seekslider.addEventListener("mousemove", function(event){ seek(event); });
@@ -123,10 +123,7 @@
 	        audioElement2.currentTime = seekto;
 	    }*/
     }
-		function setvolume(){
-	    audioElement2.volume = volumeslider.value / 100;
-		}
-
+		
 
 
 
