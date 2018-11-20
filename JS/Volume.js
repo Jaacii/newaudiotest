@@ -1,6 +1,6 @@
 //Volume Slider
 
-	var  volumeslider
+	var  volumeslider;
 	
 	
 		volumeslider = document.getElementById("volumeslider");
