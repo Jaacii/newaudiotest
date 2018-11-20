@@ -7,101 +7,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/resonance-audio/build/resonance-audio.min.js"></script>
 
+	<script src="JS/ResonanceAudio.js"></script>
+	<script src="JS/AudioSelect.js"></script>
+	<script src="JS/Play.js"></script>
     <script>
        
-	   var select = 1;
-	   
-		//---------- Resonance Audio
-
-        var x = 0.0;
-        var y = 0.0;
-        var z = 0.0;
-
-       
-        let audioContext = new AudioContext();
-
-        // first-order Ambisonic Resonance Audio scene 
-        let resonanceAudioScene = new ResonanceAudio(audioContext);
-
-        // Connect the scene’s binaural output to stereo out.
-        resonanceAudioScene.output.connect(audioContext.destination);
-
-		//Raum Größe und Material
-        let roomDimensions = {
-            width: 3.1,
-            height: 2.5,
-            depth: 3.4,
-        };
-
-       
-			let roomMaterials = {
-            
-            left: 'metal',
-            right: 'curtain-heavy',
-            front: 'curtain-heavy',
-            back: 'curtain-heavy',
-            // Room floor
-            down: 'grass',
-            // Room ceiling
-            up: 'grass',
-        };
-
-        
-        resonanceAudioScene.setRoomProperties(roomDimensions, roomMaterials);
-		
-		
-		//
-		var songs = ["Cat.wav","bird.wav","wind.wav"];
- 
-        let audioElement2 = document.createElement('audio');
-		
-        audioElement2.loop = true;
-        let audioElementSource2 = audioContext.createMediaElementSource(audioElement2);
-        let source2 = resonanceAudioScene.createSource();
-        audioElementSource2.connect(source2.input);
-        source2.setPosition(x,y,z);
-        
-
-
-
-	  //------------Audio Select
-		
-	 
-			function selectSong(value) {		
-					if (value == 0) {
-					select = 0;}
-					else if (value == 1) {
-					select = 1;}
-					else {
-					select = 2;}
-
-				
-			}
+	
    
-   //------------Play Button
-		var onOff = 0;
-		
-			function playOrPauseSong() {
-				
-				
-				
-				if (onOff == 0) {
-					audioElement2.src = songs[select];
-				
-					audioElement2.play();
-				
-					//Pic change
-					document.getElementById("playpic").src="pause.png";
-					onOff = 1;
-				}
-				else {
-					
-					audioElement2.pause();     			  
-					//Pic change
-					document.getElementById("playpic").src="play.png";
-					onOff = 0;
-				}
-			}
+  
 
 		//3dAudio
 			function audio(){
@@ -170,15 +83,15 @@
             </div>
 		 </div>
 		<script>
-	var audio, playbtn, mutebtn, seekslider, volumeslider, seeking=false, seekto;
+	var  seekslider, volumeslider, seeking=false, seekto;
 	
 	
 		volumeslider = document.getElementById("volumeslider");
 		volumeslider.addEventListener("mousemove", setvolume);
-		seekslider = document.getElementById("seekslider");
+		/*seekslider = document.getElementById("seekslider");
 		seekslider.addEventListener("mousedown", function(event){ seeking=true; seek(event); });
 		seekslider.addEventListener("mousemove", function(event){ seek(event); });
-		seekslider.addEventListener("mouseup",function(){ seeking=false; });
+		seekslider.addEventListener("mouseup",function(){ seeking=false; });*/
 
 
 //---------------------------------------
@@ -202,13 +115,13 @@
     delay.delayTime.value = delayValue;
 });
 		//---------------
-
+/*
 		function seek(event){
 	    if(seeking){
 		    seekslider.value = event.clientX - seekslider.offsetLeft;
 	        seekto = audioElement2.duration * (seekslider.value / 100);
 	        audioElement2.currentTime = seekto;
-	    }
+	    }*/
     }
 		function setvolume(){
 	    audioElement2.volume = volumeslider.value / 100;
@@ -218,54 +131,6 @@
 
 
 
-
-
-/*
-
-
-	var context = new AudioContext(),
-		sliders = document.getElementsByClassName("slider"),
-		playStopButton = document.getElementById("playStopButton"),
-	/*	 audioElementSource2 = new Audio("../sounds/sound.wav"),
-		source = context.createMediaElementSource(audioElementSource2), */
-	/*	filter = context.createBiquadFilter();
-	
-	   
-		audioElementSource2.loop = true;
-		source.connect(filter);
-		filter.connect(context.destination);
-
-
-
-for (var i = 0; i < sliders.length; i++) {
-    sliders[i].addEventListener("mousemove", changeParameter);
-}
-
-selectList.addEventListener("change", function() {
-    filter.type = selectList.options[selectList.selectedIndex].value;
-});
-
-function changeParameter() {
-    switch(this.id) {
-        case "volumeslider":
-            filter.frequency.value = this.value;
-            document.getElementById("volumeOutput").innerHTML = this.value + " Hz";
-            break;
-        case "bassslider":
-            filter.detune.value = this.value;
-            document.getElementById("bassOutput").innerHTML = this.value + " Cents";
-            break;
-        case "middleslider":
-            filter.Q.value = this.value;
-            document.getElementById("middleOutput").innerHTML = this.value;
-            break;
-        case "gainslider":
-            filter.gain.value = this.value;
-            document.getElementById("gainOutput").innerHTML = this.value + " dB";
-            break;
-    }
-}
-*/
 
 		</script>
 		
