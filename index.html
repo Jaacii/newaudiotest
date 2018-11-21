@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>GFS Resonance Audio Test</title>
-
+	<link rel="stylesheet" type="text/css" href=stylesheet.css>
 
     <script src="https://cdn.jsdelivr.net/npm/resonance-audio/build/resonance-audio.min.js"></script>
 
@@ -34,7 +34,7 @@
 <body>
 
 	 <!-- Playbutton	input or button -->
-		 <input id="playbtn" type="button" onclick="playOrPauseSong()"  class="button"> <img id="playpic" src="play.png"/> </input> 
+		 <button id="playbtn" type="button" onclick="playOrPauseSong()"  class="btn">  </button> 
 		 
 		 
 		 </br> </br> </br> </br> </br> </br> </br>
@@ -84,14 +84,7 @@
 		 </div>
 		 <script src="JS/Volume.js"></script>
 		<script>
-	var  seekslider, volumeslider, seeking=false, seekto;
-	
-	
-		
-		/*seekslider = document.getElementById("seekslider");
-		seekslider.addEventListener("mousedown", function(event){ seeking=true; seek(event); });
-		seekslider.addEventListener("mousemove", function(event){ seek(event); });
-		seekslider.addEventListener("mouseup",function(){ seeking=false; });*/
+
 
 
 //---------------------------------------
@@ -116,12 +109,7 @@
 });
 		//---------------
 /*
-		function seek(event){
-	    if(seeking){
-		    seekslider.value = event.clientX - seekslider.offsetLeft;
-	        seekto = audioElement2.duration * (seekslider.value / 100);
-	        audioElement2.currentTime = seekto;
-	    }*/
+		
     }
 		
 
