@@ -12,14 +12,14 @@
 					audioElement2.play();
 				
 					//Pic change
-					document.getElementById("playpic").src="pause.png";
+					document.getElementById("playpic").src="../pause.png";
 					onOff = 1;
 				}
 				else {
 					
 					audioElement2.pause();     			  
 					//Pic change
-					document.getElementById("playpic").src="play.png";
+					document.getElementById("playpic").src="../play.png";
 					onOff = 0;
 				}
 			}
