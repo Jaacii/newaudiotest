@@ -7,10 +7,12 @@
 			if (onOff == 0) {
 				this.style.background = "url (https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Pause-thin-rounded-button.svg/2000px-Pause-thin-rounded-button.svg.png)";
 				counter = 1;
+				audioElement2.play();
 			}
 			else if () {
 				this.style.background = "url (https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Play-rounded-button-outline.svg/2000px-Play-rounded-button-outline.svg.png)";
 				counter = 0;
+				audioElement2.pause(); 
 			}
 		};
 		
