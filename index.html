@@ -91,8 +91,14 @@
 				
 				if (onOff == 0) {
 				this.style.background = "url(pause.png)";
+				audioElement2.src = songs[select];
+				onOff = 1;
+				
+					audioElement2.play();
 				} else {
+				onOff = 0;
 				this.style.background = "url(play.png)";
+				audioElement2.pause(); 
 				}
 				
 				}
