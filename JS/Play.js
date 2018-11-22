@@ -3,7 +3,7 @@
 		var onOff = 0;
 		var btn = document.querySelector('.playbtn');
 	
-				button.onclick = function () {/*function playOrPauseSong() {*/
+			/*	button.onclick = function () {*/function playOrPauseSong() {
 				
 				
 				
