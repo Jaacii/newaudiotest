@@ -1,8 +1,9 @@
  
    //------------Play Button
 		var onOff = 0;
-		
-			function playOrPauseSong() {
+		var btn = document.querySelector('.playbtn');
+	
+				button.onclick = function () {/*function playOrPauseSong() {*/
 				
 				
 				
@@ -12,14 +13,16 @@
 					audioElement2.play();
 				
 					//Pic change
-					document.getElementById("playbtn").src="pause.png";
+					this.style.background ='pause.png';
+					//document.getElementById("playbtn").src="pause.png";
 					onOff = 1;
 				}
 				else {
 					
 					audioElement2.pause();     			  
 					//Pic change
-					document.getElementById("playbtn").src="play.png";
+					this.style.background ='play.png';
+					//document.getElementById("playbtn").src="play.png";
 					onOff = 0;
 				}
 			}
