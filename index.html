@@ -71,11 +71,14 @@
 	 
 			function selectSong(value) {		
 					if (value === 0) {
-					select = 0;}
+					select = 0;
+					audioElement2.src = songs[select];}
 					else if (value === 1) {
-					select = 1;}
+					select = 1;
+					audioElement2.src = songs[select];}
 					else {
-					select = 2;}
+					select = 2;
+					audioElement2.src = songs[select];}
 
 				
 			}
@@ -108,7 +111,7 @@
 				
 				if (onOff === 0) {
 					onOff = 1;
-					audioElement2.src = songs[select];
+					
 				
 					audioElement2.play();
 				
