@@ -13,7 +13,7 @@
 					audioElement2.play();
 				
 					//Pic change
-					this.style.background ='pause.png';
+					this.style.background ='url (https://svgsilh.com/svg_v2/27429.svg)';
 					//document.getElementById("playbtn").src="pause.png";
 					onOff = 1;
 				}
@@ -21,7 +21,7 @@
 					
 					audioElement2.pause();     			  
 					//Pic change
-					this.style.background ='play.png';
+					this.style.background ='url (https://svgsilh.com/svg_v2/1718976.svg)';
 					//document.getElementById("playbtn").src="play.png";
 					onOff = 0;
 				}
