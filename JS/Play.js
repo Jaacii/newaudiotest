@@ -20,6 +20,9 @@
 		*/
 		
 		
+//------------Play Button
+		var onOff = 0;
+		
 			function playOrPauseSong() {
 				
 				
@@ -41,3 +44,5 @@
 					onOff = 0;
 				}
 			}
+
+			
