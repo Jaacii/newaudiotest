@@ -1,6 +1,8 @@
  
    //------------Play Button
 		var onOff = 0;
+		
+		/*
 		var button = document.querySelector('.button');
 		
 		button.onclick = function () {
@@ -15,9 +17,9 @@
 				audioElement2.pause(); 
 			}
 		};
+		*/
 		
 		
-		/*
 			function playOrPauseSong() {
 				
 				
@@ -38,4 +40,4 @@
 					document.getElementById("playpic").src="play.png";
 					onOff = 0;
 				}
-			}*/
+			}

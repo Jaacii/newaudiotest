@@ -1,11 +1,5 @@
 //---------- Resonance Audio
 
-		if (window.AudioPlayer !== undefined) {
-		audioPlayer = new AudioPlayer()
-		}
-//
-
-
         var x = 0.0;
         var y = 0.0;
         var z = 0.0;
@@ -54,19 +48,4 @@
         audioElementSource2.connect(source2.input);
         source2.setPosition(x,y,z);
         
-		//
-		
-		
-		var m_gain = audioContext.createGain();
-		m_gain.connect(audioContext.destination);
-		audioContext.listener.setOrientation(0,0, -1,0,1,0);
-		
-		audioPlayer.load("Cat.wav");
-		audioPlayer.load("bird.wav");
-		audioPlayer.load("wind.wav");
-		
-		var sound1 = audioPlayer.create("Cat.wav");
-		var sound2 = audioPlayer.create("bird.wav");
-		var sound3 = audioPlayer.create("wind.wav");
-		
 
