@@ -54,6 +54,21 @@
 		<canvas id="canvas" width="600" height="400"></canvas>
 		<div id="status"></div>
 		
+		
+		
+		
+		<script>
+		var canvas = document.querySelector("#canvas")
+		canvas.context = canvas.getContext("2d")
+
+	canvas.context.fillStyle = "rgb(255,255,255)"
+	canvas.context.shadowBlur = 16
+	canvas.context.shadowColor = "rgba(255,255,255,0.8)"
+	canvas.context.shadowOffsetX = 0
+canvas.context.shadowOffsetY = 0
+		</script>
+		
+		
 		<!-- Equalizer	-->
 		 <div class="Equalizer">
 		 
