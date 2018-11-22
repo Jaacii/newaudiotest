@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-	<title>Visual-Soundilizer</title>
+	<title>TEST</title>
 	<link rel="stylesheet" type="text/css" href=stylesheet.css>
 	<meta charset= "utf-8">
 	
@@ -82,22 +82,22 @@
    
    //------------Play Button
 		var onOff = 0;
-		
-			//function playOrPauseSong() {
+		var button = document.getElementsByClassName("button");
+			function playOrPauseSong() {
 				
 				
-				var button = document.querySelector('.button');
-				button.onclick = function () {
+				
+				//button.onclick = function () {
 				
 				if (onOff == 0) {
-				this.style.background = "url(pause.png)";
+				button.style.background = "url(pause.png)";
 				audioElement2.src = songs[select];
 				onOff = 1;
 				
 					audioElement2.play();
 				} else {
 				onOff = 0;
-				this.style.background = "url(play.png)";
+				button.style.background = "url(play.png)";
 				audioElement2.pause(); 
 				}
 				
