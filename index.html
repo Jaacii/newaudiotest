@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>GFS Resonance Audio Test</title>
+<!doctype html>
+<html>
+    <head>
+	<title>Visual-Soundilizer</title>
 	<link rel="stylesheet" type="text/css" href=stylesheet.css>
+	<meta charset= "utf-8">
+	
+	<!-- Evtl ist die doppelte resonance implimierung unnötig -->
+	 
+	      <script src="https://cdn.jsdelivr.net/npm/resonance-audio/build/resonance-audio.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/resonance-audio/build/resonance-audio.min.js"></script>
-
-	<!--<script src="JS/ResonanceAudio.js"></script>
-	<script src="JS/AudioSelect.js"></script>
-	<script src="JS/Play.js"></script>  -->
     <script>
-       
-	    
 						//Später Script in einzelne Dateien packen. Single responsibility prinzip
 	   var select = 1;
 	   
@@ -111,35 +108,17 @@
 			
 		
 
-    
+    </script>
 	 
 	   
-   
-  
-
-		//3dAudio
-			function audio(){
-			
-			}
-			
-		// Slider
-			function slide() {
-			
-			//	audioElement2.volume =;
-			
-			}
-			
-			
-    </script>
-</head>
-<body>
-
-	 <!-- Playbutton	input or button -->
-		 <button id="playbtn" type="button" onclick="playOrPauseSong()"  class="btn">  </button> 
 		 
-		 
-		 </br> </br> </br> </br> </br> </br> </br>
-	 <!-- Selectbutton	 -->	 
+	
+	</head>
+	<!-- Page Elements	-->
+		<body>
+		
+		<!-- Noisemaker	-->
+		<div>
 		<div>
 				<input class="Noisemaker" id="s0" onclick="selectSong(0)" type="button"></button> 
 		</div>
@@ -149,17 +128,48 @@
 		<div>
 				<input class="Noisemaker" id="s2" onclick="selectSong(2)" type="button"></button> 
 		</div>
+		 </div>
+		 
+		 
+		 
+		  <!-- Playbutton	-->
+		 <input id="playbtn" type="button" onclick="playOrPauseSong()"  class="button"> <img id="playpic" src="Pictures/play.png"/> </input> 
+		 
+		 
+		 
+	
 
 
-		</br> </br> </br> </br> </br> </br> </br>
+		 
+
+		 
+		 
+		 
+		 <!-- Room for 3D Audio		-->
+		 <div class= "room">
+			<img src="volume.svg" id="sourceAIcon" hidden>  
+			<img src="person.svg" id="listenerIcon" hidden>
+				<canvas id="canvas"></canvas>
 		
+				<script src="audio3d.js"></script>
+				 <script src="https://cdn.jsdelivr.net/npm/resonance-audio/build/resonance-audio.min.js"></script>		<!-- google resonance audio sdk	-->
+				<script src="canvasControl.js"></script>
+		 </div>	
+		 
+		 
+		 <h1> Equalizer </h1>
+		 
+			
+		 
 		
+		 
+
 		<!-- Equalizer	-->
 		 <div class="Equalizer">
 		 
 			 
 			 <div> Volume
-                <input type="range" id="volumeslider" class="slider" min="0" max="100" value="50">
+                <input type="range" id="volumeslider" class="slider" min="0" max="100" value="10">
 				 <span id="volumeOutput" class="output">0 dB</span>
             </div>
 			<div> Gain
@@ -167,58 +177,56 @@
 				 <span id="gainOutput" class="output">0 dB</span>
             </div>
 			<div> Bass
-                <input type="range" id="seekslider" class="slider" min="0" max="100" value="0">
-				 <span id="bassOutput" class="output">0 dB</span>
+                <input type="range" id="bassslider" class="slider" min="0" max="100" value="0">
+				 <span id="bassOutput" class="output">0 ?</span>
             </div>
 			<div> Middle
-                <input type="range" id="delaySlider" class="slider" min="0" max="100" value="0">
-				 <span id="middleOutput" class="output">0 dB</span>
+                <input type="range" id="middleslider" class="slider" min="0" max="100" value="0">
+				 <span id="middleOutput" class="output">0 ?</span>
             </div>
 			<div> Treble
                 <input type="range" id="trebleslider" class="slider" min="0" max="100" value="0">
-				 <span id="trebleOutput" class="output">0 dB</span>
+				 <span id="trebleOutput" class="output">0 ?</span>
             </div>
-			<div> Reverb
-                <input type="range" id="reverbslider" class="slider" min="0" max="100" value="0">
-				 <span id="reverbOutput" class="output">0 dB</span>
+			<div> Seek
+                <input type="range" id="seekslider" class="slider" min="0" max="100" value="0">
+				 <span id="reverbOutput" class="output">0 ?</span>
             </div>
+			Reverb?
 		 </div>
-		 <script src="JS/Volume.js"></script>
+			
 		<script>
+		var seekslider, volumeslider, seeking=false, seekto;
+	
+	
+		volumeslider = document.getElementById("volumeslider");
+		volumeslider.addEventListener("mousemove", setvolume);
+		seekslider = document.getElementById("seekslider");
+		seekslider.addEventListener("mousedown", function(event){ seeking=true; seek(event); });
+		seekslider.addEventListener("mousemove", function(event){ seek(event); });
+		seekslider.addEventListener("mouseup",function(){ seeking=false; });
+
+			
+		function seek(event){
+			if(seeking){
+				seekslider.value = event.clientX - seekslider.offsetLeft;
+				seekto = audioElement2.duration * (seekslider.value / 100);
+				audioElement2.currentTime = seekto;
+			}
+		}
+		function setvolume(){
+			audioElement2.volume = volumeslider.value / 100;
+		}
 
 
-
-//---------------------------------------
-		var gain = context.createGain();
-		audioElementSource2.connect(gain);
 		
-		var stereoPanner = context.createStereoPanner();
-		var delay = context.createDelay(4.0);
-		gain.connect(delay);
-		delay.connect(stereoPanner);
-		stereoPanner.connect(context.destination);
-		
-		document.getElementById("gainslider").addEventListener("input", function (e) {
-		var gainValue = (this.value / 20);
-		document.getElementById("gainOutput").innerHTML = gainValue + " dB";
-		gain.gain.value = gainValue;
-});
-		document.getElementById("delaySlider").addEventListener("input", function (e) {
-    var delayValue = (this.value / 25);
-    document.getElementById("delayOutput").innerHTML = delayValue + " sec";
-    delay.delayTime.value = delayValue;
-});
-		//---------------
-/*
-		
-    }
-		
-
-
-
-
-
 		</script>
+		 
+
+
+		 
+		 
+		</body>
 		
-</body>
+		
 </html>
