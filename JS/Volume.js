@@ -1,13 +1,71 @@
-//Volume Slider
+var sliders = document.getElementsByClassName("slider"),
+    filter = audioContext.createBiquadFilter();
+    
+audioElementSource2.connect(filter);
+filter.connect(audioContext.destination);
 
-	var  volumeslider;
+//Slidern Eventlistener hinzufügen
+for (var i = 0; i < sliders.length; i++) {
+    sliders[i].addEventListener("mousemove", sliderchange);
+}
+
+
+function sliderchange() {
+    switch(this.id) {
+        case "volumeslider":
+            audioElement2.volume = this.value / 100;
+            document.getElementById("volumeOutput").innerHTML = this.value + " dB";
+            break;
+
+    }
+}
+
+
+
+
+
+
+
 	
 	
-		volumeslider = document.getElementById("volumeslider");
-		volumeslider.addEventListener("mousemove", setvolume);
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+
+
+	
+	
+
+
+	
+
+		
+		
+
+	
+	
+	
+	
+	
+	
+
+
+	
+
+
+	
+	
+
+
+	
+
 		
 		
 		
-	function setvolume(){
-	    audioElement2.volume = volumeslider.value / 100;
-		}

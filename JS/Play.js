@@ -1,28 +1,8 @@
- 
-   //------------Play Button
+ //------------Play Button
 		var onOff = 0;
 		
-		/*
-		var button = document.querySelector('.button');
 		
-		button.onclick = function () {
-			if (onOff == 0) {
-				this.style.background = "url (https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Pause-thin-rounded-button.svg/2000px-Pause-thin-rounded-button.svg.png)";
-				counter = 1;
-				audioElement2.play();
-			}
-			else  {
-				this.style.background = "url (https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Play-rounded-button-outline.svg/2000px-Play-rounded-button-outline.svg.png)";
-				counter = 0;
-				audioElement2.pause(); 
-			}
-		};
-		*/
-		
-		
-//------------Play Button
-		var onOff = 0;
-		
+			
 			function playOrPauseSong() {
 				
 				
@@ -31,18 +11,27 @@
 					audioElement2.src = songs[select];
 				
 					audioElement2.play();
-				
-					//Pic change
-					document.getElementById("playpic").src="pause.png";
+					document.getElementById('pausebtn').style.display="inline-block";
+					document.getElementById('playbtn').style.display="none";
+					
 					onOff = 1;
 				}
+			
 				else {
 					
-					audioElement2.pause();     			  
-					//Pic change
-					document.getElementById("playpic").src="play.png";
+					audioElement2.pause(); 
+					document.getElementById('playbtn').style.display="inline-block";
+					document.getElementById('pausebtn').style.display="none";
 					onOff = 0;
 				}
 			}
 
 			
+			//------------Audio Select
+		
+	 
+			function selectSong(value) {		
+					select = value;
+
+				
+}
